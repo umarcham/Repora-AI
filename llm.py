@@ -4,7 +4,7 @@ import json
 from jsonschema import validate, ValidationError
 from doc_editor.models import EDIT_SCHEMA
 
-GEMINI_API_KEY = "AIzaSyCnL2KXGFrTxDnr9SuD65O8qyjSnldw02g"
+GEMINI_API_KEY = "gemini_api_key"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
 def get_edit_actions(instruction, full_structure, context_pid=None):
