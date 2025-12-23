@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReporaAI - The Professional AI Report Editor</title>
+    <meta name="description"
+        content="Generate and edit professional reports with AI without breaking formatting. Exact DOCX preservation for serious work.">
+    <link rel="stylesheet" href="/static/landing.css">
+</head>
+<style>
+    /* 
+   REPORA AI LANDING PAGE STYLES
+   Brand: Premium, Professional, Trustworthy, High-End SaaS
+   Palette: Deep Navy (#0F172A), Charcoal, Silver (#F3F4F6), White, Accent Blue (#3B82F6)
+*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --color-primary: #0F172A;
+        /* Deep Navy */
+        --color-primary-light: #1E293B;
+        --color-secondary: #334155;
+        --color-accent: #3B82F6;
+        /* Electric Blue - subtle */
+        --color-accent-hover: #2563EB;
+        --color-bg-light: #F8FAFC;
+        --color-bg-white: #FFFFFF;
+        --color-text-main: #0F172A;
+        --color-text-muted: #64748B;
+        --color-border: #E2E8F0;
+
+        --font-primary: 'Inter', sans-serif;
+
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        font-family: var(--font-primary);
+        background-color: var(--color-bg-white);
+        color: var(--color-text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* --- Container --- */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* --- Header / Nav --- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        position: relative;
+        z-index: 50;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+    }
+
+    .logo svg {
+        height: 32px;
+        width: 32px;
+        color: var(--color-accent);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--color-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+        color: var(--color-accent);
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-light);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+        background-color: white;
+        color: var(--color-secondary);
+        border: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-bg-light);
+        border-color: #CBD5E1;
+    }
+
+    .btn-lg {
+        padding: 16px 32px;
+        font-size: 1.05rem;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+        padding: 80px 0 100px;
+        background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%);
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 64px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        background-color: #EFF6FF;
+        color: var(--color-accent);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 24px;
+        border: 1px solid #DBEAFE;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        line-height: 1.1;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: 24px;
+        letter-spacing: -0.03em;
+        max-width: 900px;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+        color: var(--color-text-muted);
+        max-width: 640px;
+        margin-bottom: 40px;
+        font-weight: 400;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 64px;
+    }
+
+    .hero-visual {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        /* Premium border effect */
+        background: white;
+    }
+
+    .hero-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* --- Trust Section --- */
+    .trust-section {
+        padding: 40px 0;
+        border-bottom: 1px solid var(--color-border);
+        background-color: white;
+    }
+
+    .trust-text {
+        text-align: center;
+        color: #94A3B8;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 24px;
+    }
+
+    .trust-logos {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        opacity: 0.6;
+        flex-wrap: wrap;
+        font-weight: 700;
+        color: #64748B;
+        font-size: 1.2rem;
+    }
+
+    /* --- Problem / Solution --- */
+    .section {
+        padding: 100px 0;
+    }
+
+    .section-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+    }
+
+    .section-text h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+    }
+
+    .section-text p {
+        font-size: 1.1rem;
+        color: var(--color-text-muted);
+        margin-bottom: 32px;
+    }
+
+    .bullet-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .bullet-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--color-secondary);
+        font-weight: 500;
+    }
+
+    .icon-check {
+        color: var(--color-accent);
+        width: 20px;
+        height: 20px;
+    }
+
+    .icon-x {
+        color: #EF4444;
+        /* Red */
+        width: 20px;
+        height: 20px;
+    }
+
+    .feature-box {
+        background: var(--color-bg-light);
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+    }
+
+    /* --- Use Cases --- */
+    .use-cases-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .use-case-card {
+        background: white;
+        padding: 32px;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        transition: transform 0.2s;
+    }
+
+    .use-case-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-accent);
+    }
+
+    .use-case-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #EFF6FF;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        color: var(--color-accent);
+    }
+
+    .use-case-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .use-case-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+        color: var(--color-primary);
+    }
+
+    .use-case-card p {
+        color: var(--color-text-muted);
+    }
+
+    /* --- Pricing --- */
+    .pricing-section {
+        background-color: #F8FAFC;
+        padding: 100px 0;
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 64px;
+    }
+
+    .pricing-card {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .pricing-card.featured {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-xl);
+        transform: scale(1.05);
+        z-index: 2;
+    }
+
+    .pricing-header h3 {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        margin-bottom: 8px;
+    }
+
+    .price {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin: 24px 0;
+    }
+
+    .price span {
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    .pricing-features {
+        list-style: none;
+        margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+        margin-bottom: 12px;
+        color: var(--color-secondary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* --- Features Grid (Existing) --- */
+    .features-section {
+        background-color: var(--color-primary);
+        /* Navy Background */
+        color: white;
+    }
+
+    .features-section h2 {
+        color: white;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 64px;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .feature-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 32px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        background-color: var(--color-accent);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        color: white;
+    }
+
+    .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        color: white;
+    }
+
+    .feature-card p {
+        color: #94A3B8;
+        line-height: 1.5;
+    }
+
+    /* --- How It Works --- */
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 80px;
+        position: relative;
+    }
+
+    .step-item {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        padding: 0 16px;
+    }
+
+    .step-num {
+        display: inline-flex;
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+        color: white;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 32px;
+        box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+        position: relative;
+        z-index: 2;
+        border: 4px solid white;
+        /* distinct separation from line */
+    }
+
+    /* Connector Line */
+    @media (min-width: 769px) {}
+
+    .step-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background-image: linear-gradient(to right, var(--color-border) 50%, transparent 50%);
+        background-size: 8px 100%;
+        background-repeat: repeat-x;
+        z-index: 0;
+        transform: translateX(50%);
+    }
+
+    .step-number {
+        background-color: white;
+        /* Ensure background hides the line behind it if needed, or stick to #E0E7FF but z-index handles it */
+        background-color: #E0E7FF;
+        /* Restore original color */
+        /* To hide the line behind the circle, the line starts from center. 
+           Actually, simpler to put line on container or adjust width.
+           Let's use left: 60% approx to avoid overlap, or z-index.
+        */
+    }
+
+
+    .step-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        color: var(--color-primary);
+    }
+
+    .step-item p {
+        color: var(--color-text-muted);
+    }
+
+    /* --- CTA --- */
+    .cta-section {
+        background: linear-gradient(135deg, var(--color-primary) 0%, #1E293B 100%);
+        padding: 100px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .cta-content h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+    }
+
+    .cta-content p {
+        font-size: 1.25rem;
+        color: #CBD5E1;
+        margin-bottom: 48px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-white {
+        background-color: white;
+        color: var(--color-primary);
+    }
+
+    .btn-white:hover {
+        background-color: #F8FAFC;
+        transform: translateY(-2px);
+    }
+
+    /* --- Footer --- */
+    .footer {
+        padding: 64px 0 32px;
+        background-color: #F8FAFC;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+        color: var(--color-primary);
+        font-size: 0.75rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        opacity: 0.9;
+    }
+
+    .footer-col ul {
+        list-style: none;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+        text-decoration: none;
+        color: var(--color-secondary);
+        font-size: 0.9rem;
+        transition: all 0.2s;
+        opacity: 0.7;
+    }
+
+    .footer-col ul li a:hover {
+        color: var(--color-accent);
+        opacity: 1;
+        transform: translateX(2px);
+        display: inline-block;
+    }
+
+    .copyright {
+        text-align: center;
+        color: #94A3B8;
+        font-size: 0.875rem;
+        border-top: 1px solid #E2E8F0;
+        padding-top: 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .section-grid,
+        .features-grid,
+        .steps-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .container {
+            padding: 0 20px;
+        }
+    }
+
+    /* --- Auth Pages --- */
+    .auth-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%);
+        padding: 24px;
+    }
+
+    .auth-card {
+        background: white;
+        width: 100%;
+        max-width: 400px;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+
+    .auth-header {
+        margin-bottom: 32px;
+    }
+
+    .auth-header h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 8px;
+    }
+
+    .auth-header p {
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+    }
+
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        text-align: left;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-secondary);
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--color-border);
+        font-family: var(--font-primary);
+        font-size: 1rem;
+        color: var(--color-text-main);
+        transition: all 0.2s;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .auth-footer {
+        margin-top: 24px;
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+    }
+
+    .auth-footer a {
+        color: var(--color-accent);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+
+    .forgot-password-link {
+        font-size: 0.85rem;
+        color: var(--color-accent);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .forgot-password-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Enhance existing btn styling for that 'lift' */
+    .btn-primary {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        /* Premium shadow */
+    }
+</style>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="container navbar">
+        <a href="#" class="logo">
+            <img src="../static/images/logo.png" alt="ReporaAI Logo" style="height: 48px; width: auto;">
+            ReporaAI
+        </a>
+        <div class="nav-links">
+            <a href="#use-cases" class="nav-link">Use Cases</a>
+            <a href="#how-it-works" class="nav-link">How it Works</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="/login" class="btn btn-secondary" style="padding: 10px 20px;">Login</a>
+            <a href="/signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">New: OnlyOffice Integration</span>
+                <h1>Smarter Reports. Effortlessly.</h1>
+                <p>Create, edit, and perfect professional reports using AI — without breaking your document's
+                    formatting.</p>
+                <div class="hero-actions">
+                    <a href="/app" class="btn btn-primary btn-lg">Get Started Free</a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-lg">See How It Works</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Generated mockup image -->
+                <img src="../static/images/hero.png" alt="ReporaAI Interface Mockup">
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-text">Trusted by professionals at innovative companies</div>
+            <div class="trust-logos">
+                <span>ACME Corp</span>
+                <span>Globex</span>
+                <span>Soylent</span>
+                <span>Initech</span>
+                <span>Umbrella</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section">
+        <div class="container section-grid">
+            <div class="section-text">
+                <h2>Manual report editing wastes hours.</h2>
+                <p>You spend more time fighting with formatting than writing insights. It's frustrating, slow, and prone
+                    to copy-paste errors.</p>
+                <ul class="bullet-list">
+                    <li class="bullet-item"><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg> Broken formatting when using ChatGPT</li>
+                    <li class="bullet-item"><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg> Endless re-styling in Word</li>
+                    <li class="bullet-item"><svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg> Inconsistent fonts and layouts</li>
+                </ul>
+            </div>
+            <div class="feature-box"
+                style="padding:0; overflow:hidden; display:flex; align-items:center; justify-content:center; background: #F1F5F9;">
+                <img src="../static/images/problem_visual.png" alt="Broken Formatting Illustration"
+                    style="width:100%; height:auto; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section" style="background-color: #F8FAFC;">
+        <div class="container section-grid">
+            <div class="feature-box"
+                style="padding:0; overflow:hidden; display:flex; align-items:center; justify-content:center; background:white;">
+                <img src="../static/images/solution_visual.png" alt="Perfect Formatting Illustration"
+                    style="width:100%; height:auto; display:block;">
+            </div>
+            <div class="section-text">
+                <h2>ReporaAI fixes it instantly.</h2>
+                <p>Upload your DOCX file and give instructions in plain English. Our AI understands structure,
+                    preserving your exact styles while rewriting content.</p>
+                <ul class="bullet-list">
+                    <li class="bullet-item"><svg class="icon-check" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> Exact DOCX Formatting Preservation</li>
+                    <li class="bullet-item"><svg class="icon-check" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> AI-Powered Rewriting & Generation</li>
+                    <li class="bullet-item"><svg class="icon-check" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> Integrated OnlyOffice Editor</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section" style="background-color: #F8FAFC;" id="use-cases">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:64px;">
+                <h2 style="font-size:2.5rem; color:var(--color-primary); margin-bottom:16px;">Everything you need to
+                    write.</h2>
+                <p style="color:var(--color-text-muted);">Perfect for any document type.</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Business Reports</h3>
+                    <p>AI-polished reports with perfect formatting — board-ready in minutes.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Academic Assignments</h3>
+                    <p>AI that respects citations, structure, and academic standards.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h3>Research Papers</h3>
+                    <p>Handle complex citations, figures, and abstract formatting effortlessly.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </div>
+                    <h3>Proposals & Docs</h3>
+                    <p>Win more clients with proposals that look professionally designed, not just typed.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:48px;">
+                <p style="color:#64748B; font-weight:500; margin-bottom:16px;">Used by professionals, students, and
+                    teams who care about precision.</p>
+                <a href="#how-it-works"
+                    style="color:var(--color-accent); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:gap 0.2s;">
+                    See how ReporaAI handles your document <span style="font-size:1.1em;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY REPORAAI -->
+    <section class="section features-section" id="features">
+        <div class="container">
+            <h2>Built for professionals who value precision.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" run="none" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>No Formatting Loss</h3>
+                    <p>Our engine understands DOCX structure deeper than any other tool. Your styles stay safe.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" run="none" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Enterprise-Grade Design</h3>
+                    <p>Clean, minimal, and focused on output quality. No cartoons, just tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" run="none" width="24" height="24" stroke="currentColor"
+                            stroke-width="2" fill="none">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                    </div>
+                    <h3>Fast & Reliable</h3>
+                    <p>Generate 50-page reports in seconds. 99.9% uptime for critical deadlines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BILLING / PRICING -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div style="text-align:center;">
+                <h2 style="font-size:2.5rem; color:var(--color-primary); margin-bottom:16px;">Simple, transparent
+                    pricing</h2>
+                <p style="color:var(--color-text-muted);">Start for free, upgrade for power.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">$0 <span>/mo</span></div>
+                        <p style="color:#64748B; font-size:0.9rem;">For students & hobbyists</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> 5 Documents / mo</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Basic AI Edits</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> PDF Export</li>
+                    </ul>
+                    <a href="/signup" class="btn btn-secondary" style="width:100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div
+                        style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--color-accent); color:white; padding:4px 12px; border-radius:100px; font-size:0.75rem; font-weight:700;">
+                        MOST POPULAR</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">$29 <span>/mo</span></div>
+                        <p style="color:#64748B; font-size:0.9rem;">For professionals</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Unlimited Documents</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Advanced AI Models</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> OnlyOffice Integration</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Priority Support</li>
+                    </ul>
+                    <a href="/signup" class="btn btn-primary" style="width:100%;">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Team</h3>
+                        <div class="price">$99 <span>/mo</span></div>
+                        <p style="color:#64748B; font-size:0.9rem;">For small agencies</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> 5 Team Members</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Centralized Billing</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> Shared Templates</li>
+                        <li><svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg> API Access</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width:100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:64px;">
+                <h2 style="font-size:2.5rem; color:var(--color-primary); margin-bottom:16px;">How it Works</h2>
+                <p style="color:var(--color-text-muted); font-size:1.1rem;">Three simple steps to your perfect report.
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>Upload your DOCX</h3>
+                    <p>Drag and drop your existing draft or template. ReporaAI preserves every style, heading, and
+                        layout.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h3>Tell ReporaAI what to change</h3>
+                    <p>Give instructions in plain English — "Expand section 3", "Fix grammar", or "Generate a
+                        conclusion".</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h3>Download a perfect report</h3>
+                    <p>Get a formatted DOCX back instantly — ready to share, submit, or send with confidence.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:64px;">
+                <a href="/app"
+                    style="color:var(--color-accent); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:gap 0.2s;">
+                    Try it on your own document <span style="font-size:1.1em;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Start creating better reports today.</h2>
+            <p>Join thousands of professionals saving hours every week.</p>
+            <a href="/app" class="btn btn-white btn-lg">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col" style="max-width:320px;">
+                    <a href="#" class="logo" style="margin-bottom:24px; display:inline-flex;">
+                        <img src="../static/images/logo.png" alt="ReporaAI Logo"
+                            style="height: 32px; width: auto; margin-right:8px;">
+                        ReporaAI
+                    </a>
+                    <p style="color:#64748B; font-size:0.95rem; line-height:1.6; margin-bottom:16px;">AI-powered
+                        document editing that preserves formatting — built for professionals who value precision and
+                        speed.</p>
+                    <p style="color:#94A3B8; font-size:0.85rem; font-weight:500;">Built with privacy, security, and
+                        accuracy in mind.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 ReporaAI — Built for better documents.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
