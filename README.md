@@ -1,6 +1,6 @@
-# BriefDeck: AI-Powered DOCX Report Generator
+# Repora: AI-Powered DOCX Report Generator
 
-BriefDeck is a high-performance web application designed to automate and enhance the creation of professional reports. Leveraging the power of Gemini, BriefDeck allows users to edit and generate complex DOCX files using intuitive natural language instructions.
+Repora is a high-performance web application designed to automate and enhance the creation of professional reports. Leveraging the power of Gemini, Repora allows users to edit and generate complex DOCX files using intuitive natural language instructions.
 
 ## 🚀 Key Features
 
@@ -64,4 +64,4 @@ For a deep dive into the system design, agent orchestration, and data flow, plea
 
 ---
 
-*BriefDeck: Transforming natural language into professional documents.*
+*Repora: Transforming natural language into professional documents.*
